@@ -15,16 +15,16 @@
         <img src="./images/forest-bg-dk.png" alt="forest bg" class="img-bg">
 
         <div class="attacks">
-            <div class="ap-text">100 AP</div>
+            <div id="currentAPtext" class="ap-text">100 AP</div>
             <progress id="ap-meter" value="100" max="100"></progress>
-            <button class="attack-btn arcane-scepter"></button>
-            <button class="attack-btn entangle"></button>
-            <button class="attack-btn dragon-blade"></button>
-            <button class="attack-btn star-fire"></button>
+            <button id="arcaneBtn" class="attack-btn arcane-scepter" onclick="updateAPandHP(arcaneHP, arcaneAP)"></button>
+            <button id="entangleBtn" class="attack-btn entangle" onclick="updateAPandHP(entangleHP, entangleAP)"></button>
+            <button id="dragonBtn" class="attack-btn dragon-blade" onclick="updateAPandHP(dragonHP, dragonAP)"></button>
+            <button id="starBtn" class="attack-btn star-fire" onclick="updateAPandHP(starHP, starAP)"></button>
         </div>
 
         <div class="enemy">
-            <div class="hp-text">100 HP</div>
+            <div id="currentEnemyHPtext" class="hp-text">100 HP</div>
             <progress id="hp-meter" value="100" max="100"></progress>
             <div class="freaky-fungus walk"></div>
         </div>
