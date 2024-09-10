@@ -16,47 +16,59 @@ let dragonHP = 47;
 let starAP = 33;
 let starHP = 25;
 
+
+
+
 function onReady() {
     console.log("Ready to go!")
     
     // Make sure you check the index.html file! 
     // There are lots of buttons and things ready for you to hook into here!
-    
-    
+    let fungusWalk = document.getElementById('freaky-fungus walk');
+    let HpText = document.getElementById('hp-text');
+    let ApText = document.getElementById('ap-text');
+    let HpMeter = document.getElementById('hp-meter');
+    let ApMeter = document.getElementById('ap-meter');
+
+
     // 🧠 Remember
     // - Handle events that ->
     // - Updates state which is ->
     // - Rendered to the DOM
-    render()
+    function render(){
+        HpText.innerHTML = `${fungusHP} HP`;
+        ApText.innerHTML = `${yourAP} AP`;
+
+        HpMeter.value = fungusHP;
+        ApMeter.value = yourAP;
+    }
+
+    function attackNow(attackPts, HealthPts){
+        fungusHP -= HealthPts;
+        yourAP -= attackPts;
+
+        return (attackPts, HealthPts);
+
+        if(fungusHP === 0){
+            fungusWalk.classList.remove('walk')
+            fungusWalk.classList.add('dead')
+            stopAttacks();
+            return "the monster is dead and humanity is saved!";
+        }
+
+        if(yourAP === 0){
+            fungusWalk.classList.remove('walk')
+            fungusWalk.classList.add('jump')
+            return 'the monster wins and humanity is doomed 😢';
+        }
+    }
 }
+
+function stopAttacks(){
+    document.querySelectorAll('attack-btn').setAttribute('disabled')
+    return
+}
+
+
 
 onReady()
-
-function render(){
-    let currentAP = document.getElementById('currentAPtext')
-    let enemyHP = document.getElementById("currentEnemyHPtext").innerText
-
-
-  
-
-    console.log(currentAP.innerHTML = Number(81))
-    console.log(currentAP.innerHTML + 1 )
-}
-
-
-function updateAPandHP(HPvalue, APvalue){
-    let apMeter = document.getElementById('ap-meter').value
-
-    apMeter -= APvalue;
-
-    let hpMeter = document.getElementById("hp-meter").value
-
-    hpMeter -= HPvalue;
-
-    console.log(apMeter, hpMeter);
-
-
-    fungusHP = hpMeter;
-    yourAP = apMeter;
-    render()
-}
