@@ -33,12 +33,15 @@ function onReady() {
 onReady()
 
 function render(){
-    let currentAP = document.getElementById('currentAPtext').innerText
+    let currentAP = document.getElementById('currentAPtext')
     let enemyHP = document.getElementById("currentEnemyHPtext").innerText
 
 
-}
+  
 
+    console.log(currentAP.innerHTML = Number(81))
+    console.log(currentAP.innerHTML + 1 )
+}
 
 
 function updateAPandHP(HPvalue, APvalue){
